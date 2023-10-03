@@ -3,7 +3,7 @@
 .vscode
 .env*
 .coverage
-db.sqlite
+db.sqlite3
 *.pyc
 *.mo
 
