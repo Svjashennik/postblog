@@ -1,8 +1,5 @@
-# Используем официальный образ Python в качестве базового образа
-FROM python
-# Устанавливаем рабочую директорию внутри контейнера
-WORKDIR /usr/src/app
-# Копируем файл requirements.txt внутрь контейнера
-COPY requirements.txt ./
-# Устанавливаем зависимости, описанные в файле requirements.txt
-RUN pip install -r requirements.txt
+FROM python:3.10.6-slim
+WORKDIR /app/
+COPY . .
+RUN python3 -m pip install --no-cache-dir --no-warn-script-location --upgrade pip \
+    && python3 -m pip install --no-cache-dir --no-warn-script-location --user -r requirements.txt
