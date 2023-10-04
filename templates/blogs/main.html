@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Log-in{% endblock %}
+{% block content %}
+    <h1>Posts</h1>
+    {% for post in posts %}
+        <div class="post">
+            <h3>{{ post.title }}</h3>
+            <div class="post-body">{{ post.body }}</div>
+            <div class="author">by {{ post.author.username }}</div>
+        </div>
+    {% endfor %}
+{% endblock %}
