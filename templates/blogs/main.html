@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Log-in{% endblock %}
+{% block title %}Blogs{% endblock %}
 {% block content %}
-    <h1>Posts</h1>
+    <h2>Posts</h2>
     {% for post in page_obj %}
         <div class="post">
-            <h3>{{ post.title }}</h3>
+            <h4>{{ post.title }}</h4>
             <div class="post-body">{{ post.body }}</div>
             <div class="author">by {{ post.author.username }}</div>
         </div>
