@@ -11,4 +11,5 @@ urlpatterns = [
     path('login/', user_login, name='login'),
     path('registration/', user_registration, name='registration'),
     path('', blog_view, name='main'),
+    path('<int:page>/', blog_view, name='main_pagination'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
