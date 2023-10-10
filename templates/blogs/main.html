@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block title %}Blogs{% endblock %}
 {% block content %}
+
     <h2>Posts</h2>
+    <a href="{% url 'main_pagination' current_page %}?lang={{ lang | urlencode }}">
+    Translate
+    </a>
     {% for post in page_obj %}
         <div class="post">
             <h4>{{ post.title }}</h4>
