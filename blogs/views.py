@@ -4,7 +4,6 @@ from deep_translator import GoogleTranslator
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, resolve_url
-from google_trans_new import google_translator
 
 from blogs.models import Post
 
