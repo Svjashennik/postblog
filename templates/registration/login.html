@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}
-        <title>Log-in</title>
+        <title>Вход</title>
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <meta name="google" content="notranslate" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,21 +10,19 @@
         <link href="{% static "login.css" %}" rel="stylesheet">
 {% endblock %}
 {% block content %}
+    <div>
 	<form method="post" action="{% url 'login' %}">
 	  {% csrf_token %}
 
 	  <div class="container">
-		<label for="uname"><b>Username</b></label>
-		<input type="text" placeholder="Enter Username" name="username" required>
+		<label for="uname"><b>Логин</b></label>
+		<input type="text" placeholder="Ввведите логин" name="username" required>
 
-		<label for="psw"><b>Password</b></label>
-		<input type="password" placeholder="Enter Password" name="password" required>
+		<label for="psw"><b>Пароль</b></label>
+		<input type="password" placeholder="Введите пароль" name="password" required>
 
-		<button type="submit" value="login">Login</button>
-	  </div>
-
-	  <div class="container" style="background-color:#f1f1f1">
-		<button type="button" class="cancelbtn">Cancel</button>
+		<button type="submit" value="login">Войти</button>
 	  </div>
 	</form>
-	{% endblock %}
+    </div>
+{% endblock %}
