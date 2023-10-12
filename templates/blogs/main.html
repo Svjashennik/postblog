@@ -1,30 +1,59 @@
 {% extends "base.html" %}
+
 {% block title %}Blogs{% endblock %}
 {% block content %}
-
+	
+	<!--
     <h2>Posts</h2>
+	 
     <a href="{% url 'main_pagination' current_page %}?lang={{ lang | urlencode }}">
     Translate
-    </a>
-    {% for post in page_obj %}
-        <div class="post">
-            <h4>{{ post.title }}</h4>
-            <div class="post-body">{{ post.body }}</div>
-            <div class="author">by {{ post.author.username }}</div>
+    </a>  -->
+	
+	
+	<div class="container">
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for post in page_obj %}
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <p class="card-text text-muted h6">{{ post.author.username }} | {{ post.created_on}}  </p>  
+
+                            <p class="card-text">{{post.body|safe|slice:":200" }}</p>
+                            <a href="{% url 'post_detail' post.id  %}" class="btn btn-primary">Подробнее</a> 
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+            {% block sidebar %}
+                {% include 'sidebar.html' %}
+            {% endblock sidebar %}
         </div>
-    {% endfor %}
+    </div>
+	
+	
 {% endblock %}
+
+
+
 {% block pagination %}
-    {% for page_number in page_obj.paginator.get_elided_page_range %}
-        {% if page_number == page_obj.paginator.ELLIPSIS %}
-            {{page_number}}
-        {% else %}
-            <a
-                href="{% url 'main_pagination' page_number %}"
-                class="{% if page_number == page_obj.number %}current{% endif %}"
-            >
-                {{page_number}}
-            </a>
-        {% endif %}
-    {% endfor %}
+<div class="pagination justify-content-center">  
+ <span class="step-links">  
+  {% if page_obj.has_previous %}  
+	  <a href="{% url 'main_pagination'  page_obj.previous_page_number %}">&laquo; Предыдщая   </a>
+  {% endif %}  
+    <span class="current">  
+  Страница   {{ page_obj.number }} из {{ page_obj.paginator.num_pages }} 
+    </span>  
+  {% if page_obj.has_next %}  
+		<a href="{% url 'main_pagination'  page_obj.next_page_number %}">     Следующая &raquo;</a>
+  {% endif %}  
+  </span>  
+</div>
 {% endblock %}
+

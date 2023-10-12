@@ -1,13 +1,40 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Log-in{% endblock %}
-{% block content %}
-    <h1>Log-in</h1>
-    <p>Please, use the following form to log-in:</p>
-    <form action="." method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <p><input type="submit" value="Log-in"></p>
-    </form>
-    <br>
-    <a href="{% url 'registration' %}">Registration</a>
-{% endblock %}
+
+
+
+
+
+<html>
+	<head>
+		<title>Стили Skillbox</title>
+		<link rel="stylesheet" href="login.css">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <meta name="google" content="notranslate" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+	</head>
+
+	{% block content %}
+	<form method="post" action="{% url 'login' %}">
+	  {% csrf_token %}
+
+	  <div class="container">
+		<label for="uname"><b>Username</b></label>
+		<input type="text" placeholder="Enter Username" name="uname" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input type="password" placeholder="Enter Password" name="psw" required>
+
+		<button type="submit">Login</button>
+	  </div>
+
+	  <div class="container" style="background-color:#f1f1f1">
+		<button type="button" class="cancelbtn">Cancel</button>
+	  </div>
+	</form>
+	{% endblock %}
+</html>

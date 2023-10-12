@@ -3,7 +3,8 @@ import time
 from deep_translator import GoogleTranslator
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, resolve_url
+from django.shortcuts import render, resolve_url, get_object_or_404
+from django.views.generic import ListView, DetailView
 
 from blogs.models import Post
 
@@ -24,3 +25,14 @@ def blog_view(request, page=1):
     else:
         resolved_url = resolve_url('/login/')
         return HttpResponseRedirect(resolved_url)
+
+
+def post_detail(request, id):
+    template_name = "post_detail.html"
+    post = get_object_or_404(Post, pk=id)
+    return render(request,template_name, { "post": post,},)
+    
+
+def post_about(request):
+    template_name = 'about.html'
+    return render(request,template_name)
