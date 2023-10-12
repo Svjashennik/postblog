@@ -12,7 +12,7 @@ from blogs.models import Post
 def blog_view(request, page=1):
     if request.method == 'GET' and request.user.is_authenticated:
         posts = Post.objects.all().select_related('author').order_by('title')
-        lang = request.GET.get('lang')
+        lang = request.GET.get('lang', 'ru')
         paginator = Paginator(posts, per_page=5)
         page_object = paginator.get_page(page)
         if lang == 'en':
@@ -30,9 +30,15 @@ def blog_view(request, page=1):
 def post_detail(request, id):
     template_name = "post_detail.html"
     post = get_object_or_404(Post, pk=id)
-    return render(request,template_name, { "post": post,},)
-    
+    return render(
+        request,
+        template_name,
+        {
+            "post": post,
+        },
+    )
+
 
 def post_about(request):
     template_name = 'about.html'
-    return render(request,template_name)
+    return render(request, template_name)
