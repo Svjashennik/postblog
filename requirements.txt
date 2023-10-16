@@ -32,3 +32,8 @@ sqlparse==0.4.4
 tomli==2.0.1
 typing_extensions==4.8.0
 urllib3==1.26.17
+crispy-bootstrap5==0.7
+django-crispy-forms==1.14.0
+django-htmx==1.12.2
+django-widget-tweaks==1.4.12
+selenium==3.14

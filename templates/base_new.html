@@ -1,0 +1,94 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    {% block stylesheets %}
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+      <!-- Font awesome CSS -->
+      <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+      <!-- Custom CSS -->
+      <style media="screen">
+        .invalid {
+          color: #dc3545;
+          font-size: 80%;
+        }
+        body {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+        .footer {
+          margin: auto 0 0;
+          height: 56px;
+        }
+      </style>
+    {% endblock stylesheets %}
+
+  </head>
+
+  <body>
+
+  <!-- Navigation -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
+				<div class="container-fluid">
+					<a class="navbar-brand" style="font-weight:bold" href="{% url 'main' %}">Блог</a>
+					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+						data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<div class="collapse navbar-collapse" id="navbarResponsive">
+						<ul class="navbar-nav ml-auto">
+                            <li class="nav-item text-black">
+								<a class="nav-link text-black font-weight-bold" href="/login">Логин</a>
+							</li>
+                            <li class="nav-item text-black">
+								<a class="nav-link text-black font-weight-bold" href="/registration">Регистрация</a>
+							</li>
+                            <li class="nav-item text-black">
+								<a class="nav-link text-black font-weight-bold" href="/login_dialog">Модальная авторизация</a>
+							</li>
+							<li class="nav-item text-black">
+								<a class="nav-link text-black font-weight-bold" href="/about">О нас</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+    {% block content %}{% endblock content %}
+
+
+    <!-- JavaScript -->
+    {% block scripts %}
+      <script src="{% static 'assets/js/jquery-3.2.1.min.js' %}"></script>
+      <script src="{% static 'assets/js/popper.min.js' %}"></script>
+      <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+      <!-- You can alternatively load the minified version -->
+      <script src="{% static 'js/jquery.bootstrap.modal.forms.js' %}"></script>
+
+  <!-- bootstrap scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+     {% endblock scripts %}
+
+
+    {% block extrascripts %}{% endblock extrascripts %}
+
+  </body>
+ 
+</html>
