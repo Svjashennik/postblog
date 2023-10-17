@@ -11,8 +11,8 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Регистрация</h1>
-    <p>Пожалуйста, заполните форму чтобы зарегестрироваться</p>
+    <h1 text-align = "center">Регистрация</h1>
+    <p text-align = "center">Пожалуйста, заполните форму чтобы зарегестрироваться</p>
     <form action="." method="post">
         {% csrf_token %}
         <div class="container">
@@ -34,4 +34,67 @@
 		<button type="submit" value="registration">Зарегистрироваться</button>
 	  </div>
     </form>
+
+      <style>
+/* Bordered form */
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 0 15px;
+}
+
+@media (min-width: 375.98px){
+  .container {
+    max-width: 340px;
+    margin: auto;
+    padding: 0;
+  }
+}
+
+@media (min-width: 467.98px){
+  .container {
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 691.98px) {
+  .container {
+    max-width: 360px;
+  }
+}
+
+@media (min-width: 799.98px){
+  .container {
+    max-width: 740px;
+  }
+}
+
+</style>
 {% endblock %}
