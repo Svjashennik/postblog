@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login as auth_login
 from django.http import HttpResponseRedirect, HttpResponse
 
+
 class PassRequestMixin:
     """
     Form Mixin which puts the request into the form's kwargs.

@@ -9,10 +9,7 @@ from bootstrap_modal_forms.generic import (
     BSModalLoginView,
     BSModalCreateView,
 )
-from .forms import (
-    CustomUserCreationForm,
-    CustomAuthenticationForm
-)
+from .forms import CustomUserCreationForm, CustomAuthenticationForm
 
 
 def user_login(request):
@@ -34,6 +31,7 @@ def user_login(request):
     form = LoginForm()
     registration_url = resolve_url('/registration')
     return render(request, 'registration/login.html', {'form': form, 'registration_url': registration_url})
+
 
 # для модального окна авторизации
 class CustomLoginView(BSModalLoginView):
@@ -62,7 +60,9 @@ def user_login_modal(request):
 
     form = LoginForm()
     registration_url = resolve_url('/registration')
-    return render(request, 'registration/login_form.html', {'form': form, 'registration_url': registration_url})
+    return render(
+        request, 'registration/login_form.html', {'form': form, 'registration_url': registration_url}
+    )
 
 
 def user_registration(request):
@@ -84,6 +84,7 @@ def user_registration(request):
     else:
         form = RegistrationForm()
     return render(request, 'registration/registration.html', {'form': form})
+
 
 # для модального окна регистрации
 class SignUpView(BSModalCreateView):

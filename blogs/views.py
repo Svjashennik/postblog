@@ -39,9 +39,11 @@ def post_detail(request, id):
         },
     )
 
+
 def post_about(request):
     template_name = 'about.html'
     return render(request, template_name)
+
 
 def post_login_dialog(request):
     template_name = 'registration/login_dialog.html'

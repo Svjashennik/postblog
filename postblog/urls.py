@@ -2,7 +2,14 @@ from django.conf.urls.static import static
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
-from registration.views import user_login, user_registration, CustomLoginView, SignUpView, user_login_modal, user_registration_modal
+from registration.views import (
+    user_login,
+    user_registration,
+    CustomLoginView,
+    SignUpView,
+    user_login_modal,
+    user_registration_modal,
+)
 from postblog import settings
 from blogs.views import blog_view, post_detail, post_about, post_login_dialog
 from prediction.views import post_result, post_prediction, show_books_tbl, show_prediction_tbl
