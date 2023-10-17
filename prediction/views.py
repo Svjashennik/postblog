@@ -15,7 +15,6 @@ def getPrediction(Edition, Reviews, Ratings, Edition_Year):
     Edition = dict_edit_rus[Edition]
     transform = pd.DataFrame([[Edition, Reviews, Ratings, Edition_Year]], columns = ['Edition', 'Reviews', 'Ratings', 'Edition_Year'])
     prediction = model.predict(transform)
-    print(' ===== prediction ====', prediction[0])
     return prediction[0]
 
 def save_predict(Edition, Reviews, Ratings, Edition_Year, Price, user):
