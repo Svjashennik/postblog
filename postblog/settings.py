@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     'blogs',
     'registration',
+    "widget_tweaks",
+    'bootstrap_modal_forms',
+    'prediction',
 ]
 
 MIDDLEWARE = [
@@ -125,6 +128,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+STATICFILES_FINDERS = [
+    # searches in STATICFILES_DIRS
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    # searches in STATIC subfolder of each app
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -137,3 +149,10 @@ STATIC_DIRS = (os.path.join(BASE_DIR, 'static'),)
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# No password rules in development
+AUTH_PASSWORD_VALIDATORS = []
+# Simple (and unsecure) but fast password hasher in development
+PASSWORD_HASHERS = ['django.contrib.auth.hashers.MD5PasswordHasher']
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

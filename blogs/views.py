@@ -24,7 +24,7 @@ def blog_view(request, page=1):
         context = {"page_obj": page_object, 'current_page': page, 'lang': 'en' if lang == 'ru' else 'ru'}
         return render(request, 'blogs/main.html', context)
     else:
-        resolved_url = resolve_url('/login/')
+        resolved_url = resolve_url('/login_dialog/')
         return HttpResponseRedirect(resolved_url)
 
 
@@ -42,4 +42,9 @@ def post_detail(request, id):
 
 def post_about(request):
     template_name = 'about.html'
+    return render(request, template_name)
+
+
+def post_login_dialog(request):
+    template_name = 'registration/login_dialog.html'
     return render(request, template_name)

@@ -11,4 +11,3 @@ class Command(BaseCommand):
         if Post.objects.all().count() < 2:
             for post in fixtures:
                 Post.objects.create(**post)
-
