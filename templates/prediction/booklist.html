@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for book in books %}
+        {% for book in page_obj %}
         <tr>
             <td>{{ book.Edition }}</td>
             <td>{{ book.Reviews }}</td>
@@ -85,3 +85,19 @@
         }
 </style>
 {% endblock content %}
+
+{% block pagination %}
+<div class="pagination justify-content-center">
+ <span class="step-links">
+  {% if page_obj.has_previous %}
+	  <a class="btn btn-secondary" href="{% url 'booklist'  page_obj.previous_page_number %}">&laquo; Предыдщая   </a>
+  {% endif %}
+    <span class="current">
+  Страница   {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+    </span>
+  {% if page_obj.has_next %}
+		<a class="btn btn-secondary" href="{% url 'booklist'  page_obj.next_page_number %}">     Следующая &raquo;</a>
+  {% endif %}
+  </span>
+</div>
+{% endblock %}

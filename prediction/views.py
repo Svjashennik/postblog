@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 import pickle
@@ -47,9 +48,12 @@ def post_prediction(request):
     return render(request, template_name)
 
 
-def show_books_tbl(request):
-    books = Book_tbl.objects.all()[:30:1]
-    return render(request, 'prediction/booklist.html', {'books': books})
+def show_books_tbl(request, page=1):
+    books = Book_tbl.objects.all()
+    paginator = Paginator(books, per_page=100)
+    page_object = paginator.get_page(page)
+    context = {"page_obj": page_object, 'current_page': page}
+    return render(request, 'prediction/booklist.html', context)
 
 
 def show_prediction_tbl(request):

@@ -32,5 +32,6 @@ urlpatterns = [
     path('prediction/', post_prediction, name='prediction'),
     path('result*/', post_result, name='result'),
     path('booklist/', show_books_tbl, name='booklist'),
+    path('booklist/<int:page>/', show_books_tbl, name='booklist'),
     path('prediction_list/', show_prediction_tbl, name='prediction_list'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
