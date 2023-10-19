@@ -44,6 +44,12 @@
 		<button type="submit" value="prediction_list">История предсказаий</button>
 	  </div>
 	</form>
+    <form method="post" action="{% url 'learn_model' %}">
+	  {% csrf_token %}
+	  <div class="container">
+		<button type="submit" value="learn_model">Обучить модель!</button>
+	  </div>
+	</form>
 
   </body>
 </html>
