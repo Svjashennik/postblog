@@ -12,7 +12,7 @@ from registration.views import (
 )
 from postblog import settings
 from blogs.views import blog_view, post_detail, post_about, post_login_dialog
-from prediction.views import post_result, post_prediction, show_books_tbl, show_prediction_tbl
+from prediction.views import post_result, post_prediction, show_books_tbl, show_prediction_tbl, learn_model
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,4 +33,5 @@ urlpatterns = [
     path('result*/', post_result, name='result'),
     path('booklist/', show_books_tbl, name='booklist'),
     path('prediction_list/', show_prediction_tbl, name='prediction_list'),
+    path('learn_model/', learn_model, name='learn_model'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

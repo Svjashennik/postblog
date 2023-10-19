@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
+        <h4>
+          <strong>Модель обучена!</strong>
+        </h4>
+        <div class="row">
+          <div class="col-12 mb-3">
+                <span>
+                Точность:
+                <strong>{{ sc1 }}</strong>
+                <span>
+                    <br>
+                Имя файла:
+                <strong>{{ file }}</strong>
+                <span>
+          </div>
+        </div>
+        <h4>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
